@@ -1,0 +1,18 @@
+@font-face {
+  font-family: 'helvetica';
+  src: url('https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf') format('woff'),
+    url('https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf') format('opentype'),
+    url('https://candyfonts.com/wp-data/2018/10/26/11538/HELR45W.ttf') format('truetype');
+}
+
+@for $i from 1 through 80 {
+  .fs-#{$i} {
+    font-size: #{$i}px;
+  }
+}
+
+@for $i from 1 through 7 {
+  .fw-#{$i * 100} {
+    font-weight: #{$i * 100};
+  }
+}

@@ -1,0 +1,29 @@
+:root {
+  --grey: #4f4f4f;
+  --grey-50: #6e6e6e;
+  --white: #ffffff;
+  --light-purple: #f6f2ff;
+  --primary-color: #240d57;
+  --dark-purple: #240d57;
+  --linear-purple: linear-gradient(90deg, #8456ec, #e87bf8);
+}
+
+$colors: (
+  grey: var(--grey),
+  grey-50: var(--grey-50),
+  white: var(--white),
+  light-purple: var(--light-purple),
+  primary-color: var(--primary-color),
+  dark-purple: var(--dark-purple),
+  linear-purple: var(--linear-purple),
+);
+
+$colorAreas: (background, color);
+
+@each $colorKey, $colorValue in $colors {
+  @each $colorAreaKey in $colorAreas {
+    .#{$colorAreaKey}-#{$colorKey} {
+      #{$colorAreaKey}: $colorValue;
+    }
+  }
+}

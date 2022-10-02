@@ -1,0 +1,45 @@
+@import '../mixins/index';
+
+.grid {
+  display: grid;
+
+  &__layout {
+    @extend .grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1rem;
+    @include grid-generator(12);
+
+    &--10 {
+      grid-template-columns: repeat(10, 1fr);
+      @include grid-generator(10);
+    }
+    @for $i from 1 through 5 {
+      &.gap-#{$i} {
+        grid-gap: #{$i * 10}px;
+      }
+      &.col-gap-#{$i} {
+        column-gap: #{$i * 10}px;
+      }
+      &.row-gap-#{$i} {
+        row-gap: #{$i * 10}px;
+      }
+
+      @include query(tablet) {
+        @for $i from 0 through 5 {
+          &.m-gap-#{$i} {
+            grid-gap: #{$i * 10}px;
+          }
+          &.m-col-gap-#{$i} {
+            column-gap: #{$i * 10}px;
+          }
+          &.m-row-gap-#{$i} {
+            row-gap: #{$i * 10}px;
+          }
+        }
+      }
+    }
+  }
+  &--no-gutter {
+    grid-gap: 0;
+  }
+}

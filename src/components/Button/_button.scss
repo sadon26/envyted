@@ -1,0 +1,15 @@
+.button {
+  padding: 10px 23px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.3s all ease-out;
+
+  &--one {
+    background: var(--linear-purple);
+    color: var(--white);
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}

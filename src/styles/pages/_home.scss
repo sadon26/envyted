@@ -1,0 +1,31 @@
+@import 'styles/mixins/_index.scss';
+
+.home {
+  &__img {
+    width: 350px;
+
+    @include query(tablet) {
+      width: 100%;
+    }
+
+    & img {
+      width: 100%;
+      object-fit: contain;
+      height: 100%;
+    }
+  }
+
+  &__title {
+    line-height: 60px;
+  }
+
+  &__desc {
+    line-height: 30px;
+  }
+
+  &__gradient-text {
+    background: var(--linear-purple);
+    color: transparent;
+    background-clip: text;
+  }
+}
