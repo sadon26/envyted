@@ -40,9 +40,13 @@ const Event = () => {
           </div>
           <div className="mb-4">
             <h3 className="fw-600">Picture</h3>
-            <div className="event__form-pic mb-4">
-              <img src={picture} alt="event-pic" />
-            </div>
+            {picture ? (
+              <div className="event__form-pic mb-4">
+                <img src={picture} alt="event-pic" />
+              </div>
+            ) : (
+              <span>Not Provided</span>
+            )}
           </div>
         </div>
       </div>
