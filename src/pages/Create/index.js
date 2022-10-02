@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { PageLayout } from 'layouts';
 import { Button, Input } from 'components';
 import { useNavigate } from 'react-router-dom';
+import { convertFile } from 'utils';
 
 const CreateEvent = () => {
   const [form, setForm] = useState({});
@@ -12,8 +13,13 @@ const CreateEvent = () => {
     setForm((prevForm) => ({ ...prevForm, [name]: value }));
   };
 
+  const handleFile = async (e) => {
+    const file = e.target.files[0];
+    const picture = await convertFile(file);
+    setForm((prevForm) => ({ ...prevForm, picture: picture }));
+  };
+
   const handleSubmit = () => {
-    console.log(form);
     localStorage.setItem('eventDetails', JSON.stringify(form));
     navigate('/event');
   };
@@ -71,6 +77,17 @@ const CreateEvent = () => {
               onChange={handleChange}
               name="location"
             />
+          </div>
+          <div>
+            <label className="fw-600 cursor-pointer mb-4 block color-grey" htmlFor="form-pic">
+              Upload photo
+            </label>
+            <input type="file" hidden id="form-pic" onChange={handleFile} />
+            {form.picture && (
+              <div className="event__form-pic mb-4">
+                <img src={form.picture} alt="event-pic" />
+              </div>
+            )}
           </div>
           <Button type="submit" className="w-40">
             Next

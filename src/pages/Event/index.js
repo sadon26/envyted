@@ -10,12 +10,12 @@ const Event = () => {
     return <Navigate to="/create" />;
   }
 
-  const { eventName, hostName, startDate, endDate, location } = details;
+  const { eventName, hostName, startDate, endDate, location, picture } = details;
 
   return (
     <PageLayout>
       <div>
-        <h1 className="fs-40 fw-700 mb-8 stagger__in--2">Your event details 🕺</h1>
+        <h1 className="fs-40 fw-700 mb-8 stagger__in--2">Your event details</h1>
 
         <div className="event__form stagger__in--4">
           <div className="mb-4">
@@ -37,6 +37,12 @@ const Event = () => {
           <div className="mb-4">
             <h3 className="fw-600">Location</h3>
             <p className="color-grey">{location ?? 'Not Provided'}</p>
+          </div>
+          <div className="mb-4">
+            <h3 className="fw-600">Picture</h3>
+            <div className="event__form-pic mb-4">
+              <img src={picture} alt="event-pic" />
+            </div>
           </div>
         </div>
       </div>
